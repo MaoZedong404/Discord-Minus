@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .chat-container {
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+        .chat-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .chat-input {
+            display: flex;
+            justify-content: space-between;
+        }
+        .chat-input input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .chat-input button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .chat-input button:hover {
+            background-color: #218838;
+        }
+        .messages {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        .message {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+        .message.user {
+            background-color: #d1e7dd;
+            text-align: right;
+        }
+        .message.bot {
+            background-color: #f8d7da;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">
+        <h2>Join the Chat</h2>
+    </div>
+    <div class="messages" id="messages"></div>
+    <div class="chat-input">
+        <input type="text" id="messageInput" placeholder="Type your message here...">
+        <button id="sendButton">Send</button>
+    </div>
+</div>
+
+<script>
+    const messagesDiv = document.getElementById('messages');
+    const messageInput = document.getElementById('messageInput');
+    const sendButton = document.getElementById('sendButton');
+
+    sendButton.addEventListener('click', () => {
+        const messageText = messageInput.value;
+        if (messageText) {
+            const userMessage = document.createElement('div');
+            userMessage.classList.add('message', 'user');
+            userMessage.textContent = messageText;
+            messagesDiv.appendChild(userMessage);
+            messageInput.value = '';
+
+            // Simulate bot response
+            setTimeout(() => {
+                const botMessage = document.createElement('div');
+                botMessage.classList.add('message', 'bot');
+                botMessage.textContent = 'Bot: ' + messageText;
+                messagesDiv.appendChild(botMessage);
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }, 1000);
+        }
+    });
+</script>
+
+</body>
+</html>
+<div class="join-chat">
+    <h2>Join Chat</h2>
+    <input type="text" id="username" placeholder="Enter your username" />
+    <button onclick="joinChat()">Join</button>
+</div>
+
+<script>
+    function joinChat() {
+        const username = document.getElementById('username').value;
+        if (username) {
+            alert(`${username} has joined the chat!`);
+        } else {
+            alert('Please enter a username.');
+        }
+    }
+</script>
+
+
+
+<style>
+    body {
+        background-color: #2c2f33;
+        color: #2c2f33;
+        font-family: Arial, sans-serif;
+    }
+    .header {
+        background-color: #23272a;
+        padding: 10px;
+        text-align: center;
+    }
+    .message {
+        background-color: #7289da;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 5px;
+    }
+</style>
+
+
+
+<div class="voice-chat">
+    <h2>Voice Chat</h2>
+    <button onclick="startVoiceChat()">Start Voice Chat</button>
+</div>
+
+<script>
+    function startVoiceChat() {
+        alert('Voice chat has started!');
+    }
+</script>
+<div class="join-chat">
+    <h2>Join Chat</h2>
+    <input type="text" placeholder="Enter chat room name" id="chatRoomName">
+    <button onclick="joinChat()">Join</button>
+</div>
+
+<script>
+    function joinChat() {
+        const roomName = document.getElementById('chatRoomName').value;
+        // Logic to join the chat room
+    }
+</script>
+
+
+
+<style>
+    body {
+        background-color: #2c2f33;
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+    }
+    .header {
+        background-color: #23272a;
+        padding: 10px;
+        text-align: center;
+    }
+</style>
+
+
+
+<div class="voice-chat">
+    <h2>Voice Chat</h2>
+    <button onclick="startVoiceChat()">Start Voice Chat</button>
+</div>
+
+<script>
+    function startVoiceChat() {
+        // Logic to initiate voice chat
+    }
+</script>
+
+
+
+<div class="video-call">
+    <h2>Video Call</h2>
+    <button onclick="startVideoCall()">Start Video Call</button>
+</div>
+
+<script>
+    function startVideoCall() {
+        // Logic to initiate video call
+    }
+</script>
+
+<div class="camera">
+    <h1>Camera</h1>
+    <img src="camera-image.jpg" alt="Camera Image" />
+    <p>Capture your moments with our state-of-the-art camera.</p>
+    <button>Take a Picture</button>
+</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Start</title>
+</head>
+<body>
+    <h1>Camera Start</h1>
+    <video id="video" width="640" height="480" autoplay></video>
+    <button id="startButton">Start Camera</button>
+
+    <script>
+        const video = document.getElementById('video');
+        const startButton = document.getElementById('startButton');
+
+        startButton.addEventListener('click', async () => {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+            } catch (error) {
+                console.error('Error accessing the camera: ', error);
+            }
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take a Picture</title>
+</head>
+<body>
+    <h1>Capture an Image</h1>
+    <button id="capture">Take Picture</button>
+    <video id="video" width="640" height="480" autoplay></video>
+    <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
+    <img id="photo" alt="Your photo will appear here" />
+
+    <script>
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const photo = document.getElementById('photo');
+        const captureButton = document.getElementById('capture');
+
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                video.srcObject = stream;
+            })
+            .catch(err => {
+                console.error("Error accessing the camera: ", err);
+            });
+
+        captureButton.addEventListener('click', () => {
+            const context = canvas.getContext('2d');
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const data = canvas.toDataURL('image/png');
+            photo.setAttribute('src', data);
+        });
+    </script>
+</body>
+</html>
